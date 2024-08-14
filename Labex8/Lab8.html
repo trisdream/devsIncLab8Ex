@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        height: 100vh;
+        margin: 0;
+      }
+      #result {
+        font-size: 2em;
+        margin: 20px;
+      }
+      .dice-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      .dice {
+        width: 100px;
+        height: 100px;
+        display: block;
+      }
+      button {
+        font-size: 1em;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 10px;
+        background: hwb(0 7% 18% / 0.804);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Dice Roller</h1>
+    <div class="dice-container">
+      <div>
+        <img
+          id="d6Image"
+          src="https://icons.veryicon.com/png/o/object/material_design_icons/dice-7.png"
+          alt="Black and white image of a D6 die."
+          class="dice"
+        />
+        <button onclick="rollDice(6)">Roll D6</button>
+      </div>
+      <div>
+        <img
+          id="d10Image"
+          src="https://cdn2.iconfinder.com/data/icons/roleplay-and-tabletop-dice-glyph/430/7_glyph-512.png"
+          alt="Black and whate image of a D10 die."
+          class="dice"
+        />
+        <button onclick="rollDice(10)">Roll D10</button>
+      </div>
+    </div>
+    <div id="result"></div>
+
+    <script>
+      function rollDice(sides) {
+        const roll = Math.floor(Math.random() * sides) + 1;
+        document.getElementById("result").innerText = `${roll}`;
+      }
+    </script>
+  </body>
+</html>
